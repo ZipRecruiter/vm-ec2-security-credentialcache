@@ -13,10 +13,13 @@ VM::EC2::Security::CredentialCache -- Cache credentials respecting expiration ti
 
 Retrieves the current EC2 instance's IAM credentials and caches them until they expire.
 
+  use VM::EC2;
   use VM::EC2::Security::CredentialCache;
 
   # return a VM::EC2::Security::Credentials if available undef otherwise.
   my $credentials = VM::EC2::Security::CredentialCache->get();
+
+  my $ec2 = VM::EC2->new( -security_token => $credentials );
 
 =head1 DESCRIPTION
 
